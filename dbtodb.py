@@ -51,22 +51,25 @@ def dbFetchData(conf):
          conn1.close()
          conn2.close()		 
          print("connection closed")
+#Function for comparing the tables in the database - Edited by Joseph Antony Protus, Jayasri G
 def comparison(result1,result2,col_name1,col_name2):
-   
-	if len(col_name1)==len(col_name2):
-		if len(result1)==len(result2):
-			df_1 = pd.DataFrame(data=result1, columns=col_name1)
-			df_1=df_1.reindex(sorted(df_1.columns), axis=1)
-			print(df_1)
-			df_2 = pd.DataFrame(data=result2, columns=col_name2)
-			df_2=df_2.reindex(sorted(df_2.columns), axis=1)
-			print(df_2)
-			print(df_2.equals(df_1))
-		else:
-			print("Record count mismatch")
-	else:
-		print("Column count mismatch")
-		
+    sor_res1=sorted(result1)
+    sor_res2=sorted(result2)	
+    if len(col_name1)==len(col_name2):
+        if len(sor_res1)==len(sor_res2):
+            df_1 = pd.DataFrame(data=sor_res1, columns=col_name1)
+            df_1=df_1.reindex(sorted(df_1.columns), axis=1)
+            print(df_1)
+            df_2 = pd.DataFrame(data=sor_res2, columns=col_name2)
+            df_2=df_2.reindex(sorted(df_2.columns), axis=1)
+            print(df_2)
+            print(df_2.equals(df_1))
+        else:
+            print("Record count mismatch")
+    else:
+        print("Column count mismatch")
 if __name__=="__main__":
-	conf=readConfig("conf.ini")
-    dbFetchData(conf)
+
+   conf=readConfig("conf.ini")
+   print(conf)
+   dbFetchData(conf)

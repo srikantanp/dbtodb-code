@@ -1,0 +1,142 @@
+ .open testdb.db
+ #Test case for same rows and columns
+ 
+create table student1(id int,name varchar(20));
+insert into student1 values(101,'Heer');
+insert into student1 values(102,'Sam');
+create table student2(id int,name varchar(20));
+insert into student2 values(101,'Heer');
+insert into student2 values(102,'Sam');
+
+Test Case 2:
+ create table student2_1(id int,name varchar(20));
+insert into student2_1 values(101,'Heer');
+insert into student2_1 values(102,'Sam');
+create table student2_2(id int,name varchar(20),age int);
+insert into student2_2 values(101,'Heer',24);
+insert into student2_2 values(102,'Sam',22);
+
+Test Case 3:
+create table student3_1(id int,name varchar(20),age int);
+insert into student3_1 values(101,'Heer',24);
+create table student3_2(id int,name varchar(20),age int);
+insert into student3_2 values(101,'Heer',24);
+insert into student3_2 values(102,'Sam',22);
+
+Test Case 4:
+create table student4_1(id int,name varchar(20),age int);
+insert into student4_1 values(101,'Heer',24);
+insert into student4_1 values(102,'Sam',22);
+create table student4_2(id int,int age,name varchar(20));
+insert into student4_2 values(101,24,'Heer');
+insert into student4_2 values(102,22,'Sam');
+
+
+Test Case 5:
+create table student5_1(id int,name varchar(20),age int);
+insert into student5_1 values(101,'Heer',24);
+insert into student5_1 values(102,'Sam',22);
+create table student5_2(id int,name varchar(20),age int);
+insert into student5_2 values(102,'Sam',22);
+insert into student5_2 values(101,'Heer',24);
+
+Test Case 6
+create table student6_1(id int,name varchar(20),age int);
+insert into student6_1 values(101,'Heer',24);
+insert into student6_1 values(102,'Sam',22);
+create table student6_2(id int,int age,name varchar(20));
+insert into student6_2 values(102,22,'Sam');
+insert into student6_2 values(101,24,'Heer');
+
+Test Case 7:
+create table student7_1(id int,name varchar(20));
+insert into student7_1(id)values(101);
+insert into student7_1 values(102,'Sam');
+create table student7_2(id int,name varchar(20));
+insert into student7_2 values(102,'Sam');
+insert into student7_2(id)values(101);
+
+
+Test Case 8:
+.open testdb1.db
+create table student8_1(id int,name varchar(20));
+insert into student8_1 values(101,'Heer');
+insert into student8_1 values(102,'Sam');
+.save testdb1
+.open testdb2.db
+create table student8_2(id int,name varchar(20));
+insert into student8_2 values(101,'Heer');
+insert into student8_2 values(102,'Sam');
+.save testdb2
+
+Test Case 9:
+.open testdb1
+create table student9_1(id int,name varchar(20));
+insert into student9_1 values(101,'Heer');
+insert into student9_1 values(102,'Sam');
+.save testdb1
+.open testdb2
+create table student9_2(id int,name varchar(20),age int);
+insert into student9_2 values(101,'Heer',24);
+insert into student9_2 values(102,'Sam',22);
+.save testdb2
+
+Test Case 10:
+.open testdb1
+create table student10_1(id int,name varchar(20),age int);
+insert into student10_1 values(101,'Heer',24);
+.save testdb1.db
+.open testdb2
+create table student10_2(id int,name varchar(20),age int);
+insert into student10_2 values(101,'Heer',24);
+insert into student10_2 values(102,'Sam',22);
+.save testdb2.db
+
+Test Case 11:
+.open testdb1
+create table student11_1(id int,name varchar(20),age int);
+insert into studen11_1 values(101,'Heer',24);
+insert into student11_1 values(102,'Sam',22);
+.save testdb1.db
+.open testdb2
+create table student11_2(id int,int age,name varchar(20));
+insert into student11_2 values(101,24,'Heer');
+insert into student11_2 values(102,22,'Sam');
+.save testdb2.db
+
+Test Case 12:
+.open testdb1
+create table student12_1(id int,name varchar(20),age int);
+insert into student12_1 values(101,'Heer',24);
+insert into student12_1 values(102,'Sam',22);
+.save testdb1.db
+.open testdb2
+create table student12_2(id int,name varchar(20),age int);
+insert into student12_2 values(102,'Sam',22);
+insert into student12_2 values(101,'Heer',24);
+.save testdb2.db
+
+Test Case 13:
+.open testdb1
+create table student13_1(id int,name varchar(20),age int);
+insert into student13_1 values(101,'Heer',24);
+insert into student13_1 values(102,'Sam',22);
+.save testdb1.db
+.open testdb2
+create table student13_2(id int,int age,name varchar(20));
+insert into student13_2 values(102,22,'Sam');
+insert into student13_2 values(101,24,'Heer');
+.save testdb2.db
+
+
+Test Case 14:
+.open testdb1
+create table student14_1(id int,name varchar(20));
+insert into student14_1(id)values(101);
+insert into student14_1 values(102,'Sam');
+.save testdb1.db
+.open testdb2
+create table student14_2(id int,name varchar(20));
+insert into student14_2 values(102,'Sam');
+insert into student14_2(id)values(101);
+.save testdb2.db

@@ -3,6 +3,9 @@ import sqlite3
 import mysql.connector
 from sqlite3 import dbapi2 as sqlite
 import pandas as pd
+import datetime
+from datetime import timedelta
+datetimeFormat = '%Y-%m-%d %H:%M:%S.%f'
 class dbtodb:	
 	#function for reading the configuration file:-Edited By SreeSathya Loganathan
 	def readConfig(self):
@@ -86,7 +89,7 @@ class dbtodb:
 		else:
 			#print("Column count mismatch")
 			return "False"
-	#Function to print result in CSV file - Edited by Jayashree Varadharajulu
+	#Function to print result in CSV file  - Edited by Jayashree Varadharajulu
 	def convt_csv(self,section,res):	 
 		  with open('OUTPUT6.csv','a') as obj:
 			  obj.write(section+",")
@@ -95,7 +98,13 @@ class dbtodb:
 			  
 	   
 if __name__=="__main__":
+    ts = datetime.datetime.now()   
+    time = str(ts)
 	obj=dbtodb()
 	conf=obj.readConfig()
 	obj.dbFetchData(conf)
+	ts1 = datetime.datetime.now()
+	time1 = str(ts1)
+	time_diff = datetime.datetime.strptime(time1, datetimeFormat) - datetime.datetime.strptime(time, datetimeFormat)
+	print("code running time %s"%time_diff)
 		 

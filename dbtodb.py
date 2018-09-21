@@ -21,11 +21,11 @@ class dbtodb:
 	#function for connect to dataBase: - Edited by Srikantan Prakash,Krithika Gopalsamy,Nivetha Seenivasan
 	def dbConnect(self,name,dbtype):
 	   try:
-		  if(dbtype=='sqlite3'):
+		  if(dbtype.lower()=='sqlite3'):
 			  name=name+'.db'
 			  conn=sqlite3.connect('%s'%name)
 			  return conn
-		  if(dbtype=='mysql'):
+		  if(dbtype.lower()=='mysql'):
 			  conn=mysql.connector.connect(user="root",password="root",host="localhost",database=name)
 			  print "in func",type(conn)
 			  return conn
@@ -98,8 +98,8 @@ class dbtodb:
 			  
 	   
 if __name__=="__main__":
-    ts = datetime.datetime.now()   
-    time = str(ts)
+	ts = datetime.datetime.now()   
+	time = str(ts)
 	obj=dbtodb()
 	conf=obj.readConfig()
 	obj.dbFetchData(conf)

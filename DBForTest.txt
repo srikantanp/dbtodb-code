@@ -1,6 +1,7 @@
- .open testdb.db
- #Test case for same rows and columns
  
+#Created by Joseph Antony Protus
+
+Test Case 1:
 create table student1(id int,name varchar(20));
 insert into student1 values(101,'Heer');
 insert into student1 values(102,'Sam');

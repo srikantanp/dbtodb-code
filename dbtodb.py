@@ -43,3 +43,9 @@ def dbFetchData(conf):
          conn1.close()
          conn2.close()		 
          print("connection closed")
+def comparison(r1,r2):
+   
+       if(sorted(r1)==sorted(r2)):
+          return 'true'
+       else:
+          return 'false'

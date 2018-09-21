@@ -1,6 +1,7 @@
 import ConfigParser
 import sqlite3
 from sqlite3 import dbapi2 as sqlite
+import pandas as pd
 #function for reading the configuration file:-Edited By SreeSathya Loganathan
 def readConfig(file):
    result1=[]
@@ -33,7 +34,7 @@ def dbFetchData(conf):
                  c = conn1.cursor()
                  c.execute("select * from {}".format(v))
                  result1 = c.fetchall()			
-				 col_name1=[tuple[0] for tuple in c.description]
+                 col_name1=[tuple[0] for tuple in c.description]
              if(k=='database2'):
                  name=v+".db"
                  conn2=dbConnect(name)
@@ -42,7 +43,7 @@ def dbFetchData(conf):
                  c = conn2.cursor()
                  c.execute("select * from {}".format(v))
                  result2 = c.fetchall() 
-				 col_name2=[tuple[0] for tuple in c.description]				 
+                 col_name2=[tuple[0] for tuple in c.description]				 
          res=comparison(result1,result2,col_name1,col_name2)
          convt_csv(section,res)
       except Exception as error:
@@ -64,10 +65,20 @@ def comparison(result1,result2,col_name1,col_name2):
             df_2=df_2.reindex(sorted(df_2.columns), axis=1)
             print(df_2)
             print(df_2.equals(df_1))
+            return "True"
         else:
             print("Record count mismatch")
+            return "false"
     else:
         print("Column count mismatch")
+        return "False"
+#Function to print result in CSV file - Edited by Jayashree Varadharajulu
+def convt_csv(section,res):	 
+      with open('OUTPUT.csv','a') as obj:
+          obj.write("\n")
+          obj.write(section+",")
+          obj.write(res)
+          obj.write("\n")
 if __name__=="__main__":
 
    conf=readConfig("conf.ini")

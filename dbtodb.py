@@ -11,7 +11,13 @@ def readConfig(file):
       return config
    except Exception as error:
       return error
-
+#function for connect to dataBase: - Edited by Srikantan Prakash
+def dbConnect(name):
+   try:
+      conn=sqlite3.connect('%s'%name)
+      return conn
+   except Exception as error:
+       return error
 
 #Function for Fetching data from the database-Edited by Krithika Gopalsamy,Nivetha Seenivasan
 def dbFetchData(conf):

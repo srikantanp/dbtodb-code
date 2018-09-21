@@ -1,6 +1,6 @@
 import ConfigParser
 import sqlite3
-import mysql.connector
+#import mysql.connector
 from sqlite3 import dbapi2 as sqlite
 import pandas as pd
 class dbtodb:	

@@ -1,3 +1,18 @@
+import ConfigParser
+import sqlite3
+from sqlite3 import dbapi2 as sqlite
+#function for reading the configuration file:-Edited By SreeSathya Loganathan
+def readConfig(file):
+   result1=[]
+   result2=[]
+   try:
+      config = ConfigParser.ConfigParser()
+      config.read(file)
+      return config
+   except Exception as error:
+      return error
+
+
 #Function for Fetching data from the database-Edited by Krithika Gopalsamy,Nivetha Seenivasan
 def dbFetchData(conf):
    
